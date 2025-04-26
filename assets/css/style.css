@@ -81,6 +81,15 @@ button:hover {
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Sombra */
     border-radius: 8px; /* Esquinas redondeadas */
 }
+.listado input{
+    width: 20px;
+    box-shadow:none;
+}
+.listado button {
+    width: 60px; /* Ancho del botón */
+    height: 30px; /* Alto del botón */
+    background-color: red;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -95,10 +104,11 @@ th:nth-child(1), td:nth-child(1) {
     width: 10%; /* Ancho para la columna 1 */
 }
 th:nth-child(2), td:nth-child(2) {
-    width: 70%; /* Ancho para la columna 2 */
+    width:60%; /* Ancho para la columna 2 */
 }
 th:nth-child(3), td:nth-child(3) {
-    width: 10%; /* Ancho para la columna 3 */
+    width: 20%; /* Ancho para la columna 3 */
+    text-align: center;
 }
 th:nth-child(4), td:nth-child(4) {
     width: 10%; /* Ancho para la columna 4 */

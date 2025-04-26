@@ -14,7 +14,7 @@
             <label for="name">Ingrese Nueva Tarea</label>
             <div class="ingreso">
                 <input type="text" id="nuevaTarea" placeholder="Ingresar">
-                <button type="submit">Agregar</button>
+                <button type="submit" id="agregaTarea">Agregar</button>
             </div>
             <div class="tareas">
                 <div class="conteo">
@@ -22,13 +22,12 @@
                     <p >Realizadas: <b id="realizadas">110</b></p>
                 </div>
                 <div class="listado">
+                    <!-- Creamos una tabla para mostrar los items ordenados -->
                     <table>
                         <thead>
-                            <tr><th>ID</th><th>Tarea</th></tr>
+                            <tr><th>ID</th><th>Tarea</th><th>Realizada?</th><th></th></tr>
                         </thead>
-                        <tbody id="tarea">
-                            <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-                        </tbody>
+                        <tbody id="tablaDeTareas"></tbody>
                     </table>
                 </div>
             </div>
