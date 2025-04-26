@@ -16,24 +16,47 @@ btnAgregar.addEventListener("click", () => {
     };
     arregloTareas.push(tarea);// Añadimos la tarea al arreglo
     nuevaTarea.value = ""; // Limpiamos el input para un nuevo ingreso
-    let html = "";// Generamos el HTML para mostrar las tareas
-    for (let tarea of arregloTareas) {
-        let check = tarea.check ? "checked" : ""; // Definimos si está marcada
-        html += `
-        <tr>
-            <td>${tarea.id}</td>
-            <td>${tarea.nombre}</td>
-            <td><input type="checkbox" id="ck${tarea.id}" ${check}></td>
-            <td><button onclick="borrar(${tarea.id})">Borrar</button></td>
-        </tr>`;
-    }
-    tablaDeTareas.innerHTML = html; //Actualizamos el DOM
-    //console.log(arregloTareas);
+    actualizarTabla(); //funcion para actualizar tabla
 });
 //---------------------------------FIN BOTON
 
 
-//Funcion Borrar
+//FUNCION ACTUALIZAR TABLA DE TAREAS
+function actualizarTabla() {
+    let html = "";
+    for (let tarea of arregloTareas) {
+        let check = tarea.check ? "checked" : "";
+        html += `
+        <tr>
+            <td id="id${tarea.id}" class="${tarea.check ? "tachado" : ""}">${tarea.id}</td>
+            <td id="tarea${tarea.id}" class="${tarea.check ? "tachado" : ""}">${tarea.nombre}</td>
+            <td><input type="checkbox" id="ck${tarea.id}" ${check} onchange="marcarTarea(${tarea.id})"></td>
+            <td><button onclick="borrar(${tarea.id})">Borrar</button></td>
+        </tr>`;
+    }
+    tablaDeTareas.innerHTML = html;
+}
+//------------------------------------
+
+//FUNCION MARCAR TAREA
+function marcarTarea(id) {
+    let tarea = arregloTareas.find(t => t.id === id);
+    if (tarea) {
+        tarea.check = !tarea.check; // Cambia el estado de "check"
+        const elementoId = document.querySelector(`#id${id}`);
+        const elementoTarea = document.querySelector(`#tarea${id}`);
+        if (tarea.check) {
+            elementoId.classList.add("tachado"); // Agrega la clase al ID
+            elementoTarea.classList.add("tachado"); // Agrega la clase a la tarea
+        } else {
+            elementoId.classList.remove("tachado"); // Quita la clase del ID
+            elementoTarea.classList.remove("tachado"); // Quita la clase de la tarea
+        }
+    }
+}
+//------------------------------------
+
+//FUNCION BORRAR
 function borrar(id) {
     // Encontramos el índice del elemento que queremos eliminar
     const indice = arregloTareas.findIndex(tarea => tarea.id === id);
@@ -57,4 +80,4 @@ function borrar(id) {
     tablaDeTareas.innerHTML = html;
     //console.log(arregloTareas);
 }
-//---------------------------------Fin Funcion Borrar
+//---------------------------------

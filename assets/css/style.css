@@ -113,3 +113,8 @@ th:nth-child(3), td:nth-child(3) {
 th:nth-child(4), td:nth-child(4) {
     width: 10%; /* Ancho para la columna 4 */
 }
+.tachado {
+    text-decoration: line-through;
+    color:#aaa;
+    
+}
