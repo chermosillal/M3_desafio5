@@ -1,0 +1,105 @@
+body {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    background-color: #dddddd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p {
+    padding: 0; /* Elimina todo el padding del párrafo */
+    margin: 0; /* Opcional: Elimina también los márgenes, si es necesario */
+}
+.cuerpo {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 800px;
+}
+.card {
+    display: flex;
+    font-size: 20px;
+    color: rgb(74, 73, 73);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.ingreso{
+    display: flex    ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+input {
+    width: 500px; /* Ancho del input */
+    height: 30px; /* Alto del input */
+    font-size: 16px; /* Tamaño del texto */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra con difuminado */
+    border: 1px solid #ccc; /* Bordes para darle un acabado más elegante */
+    border-radius: 8px; /* Redondear las esquinas */
+    padding: 5px;
+}
+input:focus {
+    border-color: #4CAF50; /* Cambia el color del borde a verde */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+    button {
+    width: 150px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+    border: none; /* Eliminar bordes */
+    border-radius: 8px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+button:hover {
+    background-color: #45a049; /* Cambio de color al pasar el mouse */
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.8); /* Sombra más intensa al pasar el mouse */
+}
+.tareas {
+    display: flex;
+}
+.tareas p{
+    padding: 0px;
+}
+.conteo{
+    display: flex    ;
+    width: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:10px;
+}
+.listado {
+    display: flex;
+    width: 550px;
+    padding: 0 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Sombra */
+    border-radius: 8px; /* Esquinas redondeadas */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th, td {
+    border: 0px;
+    padding: 5px;
+    text-align:left;
+}
+th:nth-child(1), td:nth-child(1) {
+    width: 10%; /* Ancho para la columna 1 */
+}
+th:nth-child(2), td:nth-child(2) {
+    width: 70%; /* Ancho para la columna 2 */
+}
+th:nth-child(3), td:nth-child(3) {
+    width: 10%; /* Ancho para la columna 3 */
+}
+th:nth-child(4), td:nth-child(4) {
+    width: 10%; /* Ancho para la columna 4 */
+}
