@@ -36,48 +36,25 @@ function actualizarTabla() {
     }
     tablaDeTareas.innerHTML = html;
 }
+
 //------------------------------------
 
 //FUNCION MARCAR TAREA
 function marcarTarea(id) {
     let tarea = arregloTareas.find(t => t.id === id);
     if (tarea) {
-        tarea.check = !tarea.check; // Cambia el estado de "check"
-        const elementoId = document.querySelector(`#id${id}`);
-        const elementoTarea = document.querySelector(`#tarea${id}`);
-        if (tarea.check) {
-            elementoId.classList.add("tachado"); // Agrega la clase al ID
-            elementoTarea.classList.add("tachado"); // Agrega la clase a la tarea
-        } else {
-            elementoId.classList.remove("tachado"); // Quita la clase del ID
-            elementoTarea.classList.remove("tachado"); // Quita la clase de la tarea
-        }
+        tarea.check = !tarea.check; // Alternamos el estado "check"
+        actualizarTabla(); // Regeneramos la tabla con el estado actualizado
     }
 }
 //------------------------------------
 
 //FUNCION BORRAR
 function borrar(id) {
-    // Encontramos el índice del elemento que queremos eliminar
-    const indice = arregloTareas.findIndex(tarea => tarea.id === id);
-    // Si se encuentra el índice (es diferente de -1), eliminamos el elemento con splice
-    if (indice !== -1) { //comprobamos que relaqmente exista
-        arregloTareas.splice(indice, 1); // Elimina 1 elemento en la posición del índice encontrado
+    let indice = arregloTareas.findIndex(t => t.id === id);
+    if (indice !== -1) {
+        arregloTareas.splice(indice, 1); // Eliminamos la tarea del arreglo
+        actualizarTabla(); // Regeneramos la tabla tras eliminar
     }
-
-    // Generamos nuevamente el HTML después de eliminar la tarea
-    let html = "";
-    for (let tarea of arregloTareas) {
-        let check = tarea.check ? "checked" : "";
-        html += `
-        <tr>
-            <td>${tarea.id}</td>
-            <td>${tarea.nombre}</td>
-            <td><input type="checkbox" id="ck${tarea.id}" ${check}></td>
-            <td><button onclick="borrar(${tarea.id})">Borrar</button></td>
-        </tr>`;
-    }
-    tablaDeTareas.innerHTML = html;
-    //console.log(arregloTareas);
 }
 //---------------------------------
