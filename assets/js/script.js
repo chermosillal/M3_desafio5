@@ -23,7 +23,7 @@ btnAgregar.addEventListener("click", () => {
 
 //FUNCION ACTUALIZAR TABLA DE TAREAS
 function actualizarTabla() {
-    let html = "";
+    let html = "";let sumaRealizadas = 0;
     for (let tarea of arregloTareas) {
         let check = tarea.check ? "checked" : "";
         html += `
@@ -33,8 +33,13 @@ function actualizarTabla() {
             <td><input type="checkbox" id="ck${tarea.id}" ${check} onchange="marcarTarea(${tarea.id})"></td>
             <td><button onclick="borrar(${tarea.id})">Borrar</button></td>
         </tr>`;
+        if (tarea.check==true){sumaRealizadas+=1 }//llevamos el conteo de las realizadas
     }
     tablaDeTareas.innerHTML = html;
+    const tareasTotales = document.querySelector("#total");
+    tareasTotales.textContent = arregloTareas.length;// actualizamos la cantidad de tareas
+    const tareasRealizadas = document.querySelector("#realizadas"); 
+    tareasRealizadas.textContent = sumaRealizadas;//hactualizamos las tareas hechas
 }
 
 //------------------------------------
@@ -57,4 +62,3 @@ function borrar(id) {
         actualizarTabla(); // Regeneramos la tabla tras eliminar
     }
 }
-//---------------------------------
